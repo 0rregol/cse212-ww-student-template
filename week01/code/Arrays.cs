@@ -12,8 +12,15 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
-
-        return []; // replace this return statement with your own
+        //create a data container
+            double[] resultado = new double[length];
+            // loop through the length of the array and fill it with the multiples of the number  
+            for (int i = 0; i < length; i++) {
+                // the first element of the array should be the number itself, so we multiply the number by (i + 1) to get the multiples
+                resultado[i] = number * (i + 1);
+            }
+           // return the array
+        return resultado; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +36,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // To rotate the list to the right by the specified amount, we can follow these steps:
+        // 1. Determine the length of the list.
+        int length = data.Count;
+        // 2. Create a new list to hold the rotated elements.
+        var finalList = data.GetRange(length - amount, amount);
+        // 3. Add the remaining elements from the original list to the new list.
+        finalList.AddRange(data.GetRange(0, length - amount));  
+        // 4. Copy the elements from the new list back to the original list.
+        for (int i = 0; i < length; i++) {
+            // 5. Update the original list with the rotated values.
+            data[i] = finalList[i];
+        }
+    
+        
     }
 }
